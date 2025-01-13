@@ -1,8 +1,5 @@
 #!/bin/bash
 
-source /root/.bashrc
-sleep 2
-
 # Инициализируем ноду
 CONFIG_URL="https://raw.gaianet.ai/qwen2-0.5b-instruct/config.json"
 gaianet init --config "$CONFIG_URL"
@@ -14,8 +11,8 @@ gaianet start
 echo "Сохраняем Node ID и Device ID в файл gaianet_info.txt..."
 gaianet info > /root/gaianet_info.txt
 
-# Извлекаем Node ID для использования в скрипте, удаляя лишние символы
-NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}' | tr -d '[:space:][:cntrl:]' | sed 's/[^a-zA-Z0-9]//g')
+# Извлекаем Node ID для использования в скрипте, удаляя лишние символы и ограничивая длину до 42 символов
+NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}' | sed 's/[^a-zA-Z0-9]//g' | cut -c1-42)
 echo "Node ID: $NODE_ID"
 
 # Настраиваем автозапуск для ноды
@@ -59,7 +56,7 @@ import random
 import logging
 import time
 from faker import Faker
-from datetime import datetime
+from datetime datetime
 
 node_url = \"https://$NODE_ID.gaia.domains/v1/chat/completions\"
 
@@ -109,7 +106,7 @@ while True:
 
     print(f\"Q ({question_time}): {random_question}\nA ({reply_time}): {reply}\")
 
-    delay = random.randint(1, 3)
+    delay = random.randint(0, 1)
     time.sleep(delay)" > $CHAT_SCRIPT
 
 # Проверяем, что файл был создан
@@ -126,12 +123,6 @@ screen -dmS faker_session bash -c "python3 $CHAT_SCRIPT"
 
 # Инструкция по завершению
 cat << EOF
-
-Установка завершена! Скрипт общения с Gaianet AI запущен в screen сессии faker_session.
-Для подключения к сессии выполните:
-   screen -r faker_session
-Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
-EOF
 
 Установка завершена! Скрипт общения с Gaianet AI запущен в screen сессии faker_session.
 Для подключения к сессии выполните:
