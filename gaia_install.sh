@@ -10,11 +10,10 @@ sudo apt update -y && sudo apt-get update -y
 # Устанавливаем последнюю версию установщика Gaianet
 curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash
 
-# Настраиваем окружение Bash
 sleep 2 
+# Настраиваем окружение Bash
 source /root/.bashrc
 sleep 2 
-
 # Инициализируем ноду
 CONFIG_URL="https://raw.gaianet.ai/qwen2-0.5b-instruct/config.json"
 gaianet init --config "$CONFIG_URL"
@@ -124,9 +123,16 @@ while True:
     delay = random.randint(1, 3)
     time.sleep(delay)" > $CHAT_SCRIPT
 
+# Проверяем, что файл был создан
+if [ -f "$CHAT_SCRIPT" ]; then
+    echo "Файл $CHAT_SCRIPT успешно создан"
+else
+    echo "Не удалось создать файл $CHAT_SCRIPT"
+    exit 1
+fi
+
 # Запускаем скрипт в screen
 echo "Запускаем скрипт в screen сессии faker_session..."
-sleep 2 
 screen -dmS faker_session bash -c "python3 $CHAT_SCRIPT"
 
 # Инструкция по завершению
