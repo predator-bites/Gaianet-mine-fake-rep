@@ -11,7 +11,9 @@ sudo apt update -y && sudo apt-get update -y
 curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash
 
 # Настраиваем окружение Bash
-source ~/.bashrc
+sleep 2 
+source /root/.bashrc
+sleep 2 
 
 # Инициализируем ноду
 CONFIG_URL="https://raw.gaianet.ai/qwen2-0.5b-instruct/config.json"
