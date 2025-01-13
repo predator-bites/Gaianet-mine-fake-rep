@@ -126,6 +126,7 @@ while True:
 
 # Запускаем скрипт в screen
 echo "Запускаем скрипт в screen сессии faker_session..."
+sleep 2 
 screen -dmS faker_session bash -c "python3 $CHAT_SCRIPT"
 
 # Инструкция по завершению
