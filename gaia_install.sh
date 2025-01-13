@@ -14,6 +14,7 @@ sleep 2
 # Настраиваем окружение Bash
 source /root/.bashrc
 sleep 2 
+
 # Инициализируем ноду
 CONFIG_URL="https://raw.gaianet.ai/qwen2-0.5b-instruct/config.json"
 gaianet init --config "$CONFIG_URL"
@@ -23,10 +24,10 @@ gaianet start
 
 # Получаем и сохраняем информацию о ноде
 echo "Сохраняем Node ID и Device ID в файл gaianet_info.txt..."
-gaianet info > ~/gaianet_info.txt
+gaianet info > /root/gaianet_info.txt
 
 # Извлекаем Node ID для использования в скрипте
-NODE_ID=$(grep 'Node ID:' ~/gaianet_info.txt | awk '{print $3}')
+NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}')
 echo "Node ID: $NODE_ID"
 
 # Настраиваем автозапуск для ноды
@@ -63,7 +64,7 @@ sudo apt install -y python3-pip nano screen
 pip install requests faker
 
 # Создаем скрипт общения с Gaianet AI
-CHAT_SCRIPT="~/random_chat_with_faker.py"
+CHAT_SCRIPT="/root/random_chat_with_faker.py"
 echo "Создаем скрипт: $CHAT_SCRIPT"
 echo "import requests
 import random
@@ -120,7 +121,7 @@ while True:
 
     print(f\"Q ({question_time}): {random_question}\nA ({reply_time}): {reply}\")
 
-    delay = random.randint(1, 3)
+    delay = random.randint(0, 1)
     time.sleep(delay)" > $CHAT_SCRIPT
 
 # Проверяем, что файл был создан
@@ -143,3 +144,4 @@ cat << EOF
    screen -r faker_session
 Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
 EOF
+
