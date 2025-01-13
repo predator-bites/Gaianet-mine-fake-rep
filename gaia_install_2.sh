@@ -15,7 +15,7 @@ echo "Сохраняем Node ID и Device ID в файл gaianet_info.txt..."
 gaianet info > /root/gaianet_info.txt
 
 # Извлекаем Node ID для использования в скрипте, удаляя лишние символы
-NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}' | tr -d '[:space:][:cntrl:]' | sed 's/[^a-fA-F0-9x]//g')
+NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}' | tr -d '[:space:][:cntrl:]' | sed 's/[^a-zA-Z0-9]//g')
 echo "Node ID: $NODE_ID"
 
 # Настраиваем автозапуск для ноды
