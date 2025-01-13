@@ -56,7 +56,7 @@ import random
 import logging
 import time
 from faker import Faker
-from datetime datetime
+from datetime import datetime
 
 node_url = \"https://$NODE_ID.gaia.domains/v1/chat/completions\"
 
