@@ -10,7 +10,6 @@ sudo apt update -y && sudo apt-get update -y
 # Устанавливаем последнюю версию установщика Gaianet
 curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash
 
-# Настраиваем окружение Bash
- 
+cat << EOF
 
 
