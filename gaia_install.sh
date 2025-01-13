@@ -10,8 +10,8 @@ sudo apt update -y && sudo apt-get update -y
 # Устанавливаем последнюю версию установщика Gaianet
 curl -sSfL 'https://github.com/GaiaNet-AI/gaianet-node/releases/latest/download/install.sh' | bash
 
-sleep 2 
 # Настраиваем окружение Bash
+sleep 2 
 source /root/.bashrc
 sleep 2 
 
@@ -26,8 +26,8 @@ gaianet start
 echo "Сохраняем Node ID и Device ID в файл gaianet_info.txt..."
 gaianet info > /root/gaianet_info.txt
 
-# Извлекаем Node ID для использования в скрипте
-NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}')
+# Извлекаем Node ID для использования в скрипте, удаляя лишние символы
+NODE_ID=$(grep 'Node ID:' /root/gaianet_info.txt | awk '{print $3}' | tr -d '[[:cntrl:]]')
 echo "Node ID: $NODE_ID"
 
 # Настраиваем автозапуск для ноды
