@@ -1,5 +1,8 @@
 #!/bin/bash
 
+BLUE='\033[34m'
+RESET='\033[0m'
+
 # Инициализируем ноду
 CONFIG_URL="https://raw.gaianet.ai/qwen2-0.5b-instruct/config.json"
 gaianet init --config "$CONFIG_URL"
@@ -129,4 +132,4 @@ cat << EOF
    screen -r faker_session
 Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
 EOF
-echo ${BLUE}"https://t.me/DropPredator"
+echo -e "${BLUE}https://t.me/DropPredator${RESET}"
