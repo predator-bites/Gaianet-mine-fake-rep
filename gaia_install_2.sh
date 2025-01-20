@@ -129,3 +129,4 @@ cat << EOF
    screen -r faker_session
 Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
 EOF
+echo ${BLUE}"https://t.me/DropPredator"
