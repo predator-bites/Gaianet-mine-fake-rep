@@ -123,11 +123,10 @@ echo "Запускаем скрипт в screen сессии faker_session..."
 screen -dmS faker_session bash -c "python3 $CHAT_SCRIPT"
 
 # Инструкция по завершению
-cat << EOF
 
-Установка завершена! Скрипт общения с Gaianet AI запущен в screen сессии faker_session.
-Для подключения к сессии выполните:
-   screen -r faker_session
-Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
-EOF
+echo -e "\033[38;5;196mУстановка завершена! Скрипт общения с Gaianet AI запущен в screen сессии faker_session."
+echo -e "\033[38;5;196mДля подключения к сессии выполните:"
+echo    "screen -r faker_session"
+echo -e "\033[38;5;196mЧтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.\033[0m"
+
 echo -e "${NEON_BLUE}https://t.me/DropPredator${RESET}"
