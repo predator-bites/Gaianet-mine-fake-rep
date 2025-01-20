@@ -1,6 +1,7 @@
 #!/bin/bash
 
 NEON_BLUE='\033[38;5;45m'
+NEON_RED= '\033[38;5;196m'
 RESET='\033[0m'
 
 # Инициализируем ноду
@@ -11,7 +12,7 @@ gaianet init --config "$CONFIG_URL"
 gaianet start
 
 # Получаем и сохраняем информацию о ноде
-echo "Сохраняем Node ID и Device ID в файл gaianet_info.txt..."
+echo -e "${NEON_BLUE}Сохраняем Node ID и Device ID в файл gaianet_info.txt...${RESET}"
 gaianet info > /root/gaianet_info.txt
 
 # Извлекаем Node ID для использования в скрипте, удаляя лишние символы и ограничивая длину до 42 символов
@@ -42,9 +43,6 @@ WantedBy=multi-user.target" | sudo tee $SERVICE_FILE
 sudo systemctl daemon-reload
 sudo systemctl restart gaianet.service
 sudo systemctl enable gaianet.service
-
-# Проверяем статус ноды
-sudo systemctl status gaianet.service
 
 # Устанавливаем необходимые пакеты для работы с Gaianet AI
 sudo apt update -y
