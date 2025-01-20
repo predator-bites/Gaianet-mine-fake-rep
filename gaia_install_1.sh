@@ -19,9 +19,9 @@ ${RESET}
 
 # Вызов логотипа
 logo
-
+echo ${BLUE}"https://t.me/DropPredator"
 # Основная логика
-echo "Welcome to DropPredator!"
+echo "Welcome to DP Script!"
 
 # Скрипт автоустановки ноды Gaianet для Ubuntu 22.04
 
