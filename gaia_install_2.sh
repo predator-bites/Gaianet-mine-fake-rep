@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BLUE='\033[34m'
+NEON_BLUE='\033[38;5;45m'
 RESET='\033[0m'
 
 # Инициализируем ноду
@@ -132,4 +132,4 @@ cat << EOF
    screen -r faker_session
 Чтобы выйти из сессии, не останавливая скрипт, нажмите Ctrl+A, затем D.
 EOF
-echo -e "${BLUE}https://t.me/DropPredator${RESET}"
+echo -e "${NEON_BLUE}https://t.me/DropPredator${RESET}"
