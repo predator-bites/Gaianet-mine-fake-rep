@@ -19,7 +19,7 @@ ${RESET}
 
 # Вызов логотипа
 logo
-echo ${BLUE}"https://t.me/DropPredator"
+echo -e "${BLUE}https://t.me/DropPredator${RESET}"
 # Основная логика
 echo "Welcome to DP Script!"
 
