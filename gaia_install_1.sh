@@ -2,26 +2,26 @@
 
 # Цветовые коды
 RED='\033[31m'
-BLUE='\033[34m'
+NEON_BLUE='\033[38;5;45m'
 RESET='\033[0m'
 
 # Логотип
 logo() {
     echo -e "
-${RED}  ____   ${BLUE}____  
-${RED} |  _ \\  ${BLUE}|  _ \\ 
-${RED} | | | | ${BLUE}| |_) |
-${RED} | |_| | ${BLUE}|  __/ 
-${RED} |____/  ${BLUE}|_|    
-${RESET}
+${NEON_RED}  ____   ${NEON_BLUE}____  
+${NEON_RED} |  _ \\  ${NEON_BLUE}|  _ \\ 
+${NEON_RED} | | | | ${NEON_BLUE}| |_) |
+${NEON_RED} | |_| | ${NEON_BLUE}|  __/ 
+${NEON_RED} |____/  ${NEON_BLUE}|_|    
+${NEON_RESET}
 "
 }
 
 # Вызов логотипа
 logo
-echo -e "${BLUE}https://t.me/DropPredator${RESET}"
+echo -e "${NEON_BLUE}https://t.me/DropPredator${RESET}"
 # Основная логика
-echo "Welcome to DP Script!"
+echo -e "${NEON_RED}Welcome to DP Script!${RESET}"
 
 # Скрипт автоустановки ноды Gaianet для Ubuntu 22.04
 
